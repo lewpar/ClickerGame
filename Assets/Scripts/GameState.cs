@@ -48,11 +48,13 @@ public class GameState : MonoBehaviour
         }
     }
 
-    public static GameState Instance 
+    public static GameState Instance { get; set; }
+
+    void Awake()
     {
-        get
+        if(Instance is null)
         {
-            return GameObject.FindAnyObjectByType<GameState>();
+            Instance = this;
         }
     }
 }
