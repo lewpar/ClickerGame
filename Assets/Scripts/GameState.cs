@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+
 using TMPro;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -49,12 +51,18 @@ public class GameState : MonoBehaviour
     }
 
     public static GameState Instance { get; set; }
+    public static PlayerController Player { get; set; }
 
     void Awake()
     {
-        if(Instance is null)
+        if(Instance == null)
         {
             Instance = this;
+        }
+
+        if(Player == null)
+        {
+            Player = GameObject.FindAnyObjectByType<PlayerController>();
         }
     }
 }

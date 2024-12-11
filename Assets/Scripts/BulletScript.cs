@@ -12,17 +12,6 @@ public class BulletScript : MonoBehaviour
 
     private float currentLifetime;
 
-    private Rigidbody2D rigidBody;
-
-    void Start()
-    {
-        rigidBody = this.GetComponent<Rigidbody2D>();
-        if(rigidBody is null)
-        {
-            throw new System.Exception($"Failed to get rigidbody2d for bullet script on object {this.name}");
-        }
-    }
-
     void Update()
     {
         currentLifetime += Time.deltaTime;
@@ -39,20 +28,20 @@ public class BulletScript : MonoBehaviour
             return;
         }
 
-        rigidBody.velocity = Direction * moveSpeed;
+        this.transform.position += (Vector3)Direction * moveSpeed * Time.fixedDeltaTime;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         var gameObject = other.gameObject;
 
-        var zombieAI = gameObject.GetComponent<ZombieAI>();
-        if(zombieAI is null)
+        var zombie = gameObject.GetComponent<Zombie>();
+        if(zombie is null)
         {
             return;
         }
 
-        zombieAI.Kill();
+        GameObject.Destroy(zombie.gameObject);
         GameObject.Destroy(this.gameObject);
         GameState.Instance.UpdateGold(1);
     }
