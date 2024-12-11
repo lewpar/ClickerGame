@@ -30,4 +30,10 @@ public abstract class Unit : GridUnit
         // Needed for cell updates
         base.OnFixedUpdate();
     }
+
+    public void DestroySafe()
+    {
+        CurrentCell.Remove(this);
+        Destroy(this.gameObject);
+    }
 }

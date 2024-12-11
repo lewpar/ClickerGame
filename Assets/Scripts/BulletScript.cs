@@ -41,7 +41,7 @@ public class BulletScript : MonoBehaviour
             return;
         }
 
-        GameObject.Destroy(zombie.gameObject);
+        zombie.DestroySafe();
         GameObject.Destroy(this.gameObject);
         GameState.Instance.UpdateGold(1);
     }

@@ -13,4 +13,25 @@ public class SpatialGrid
         CellSize = cellSize;
         Cells = new Dictionary<Vector2Int, SpatialGridCell>();
     }
+
+    public SpatialGridCell GetCell(float x, float y)
+    {
+        var gridPosition = new Vector2Int(Mathf.FloorToInt(x / CellSize), Mathf.FloorToInt(y / CellSize));
+
+        if(!Cells.ContainsKey(gridPosition))
+        {
+            var newCell = new SpatialGridCell();
+            Cells.Add(gridPosition, newCell);
+            newCell.Grid = this;
+            newCell.Cell = gridPosition;
+            return newCell;
+        }
+
+        return Cells[gridPosition];
+    }
+
+    public SpatialGridCell GetCell(Vector2 position)
+    {
+        return GetCell(position.x, position.y);
+    }
 }

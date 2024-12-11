@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TurretAI : MonoBehaviour
+public class TurretAI : GridUnit
 {
     [SerializeField]
     private float shootFrequency = 1f;
@@ -10,7 +10,7 @@ public class TurretAI : MonoBehaviour
 
     private float shootTimer;
 
-    void Update()
+    public override void OnUpdate()
     {
         var closestZombie = GetClosestZombie();
         if(closestZombie is null)
@@ -32,7 +32,7 @@ public class TurretAI : MonoBehaviour
         }
     }
 
-    private void Shoot(GameObject target)
+    private void Shoot(Unit target)
     {
         Debug.Log("Shooting Turret");
         
@@ -44,27 +44,38 @@ public class TurretAI : MonoBehaviour
         Debug.Log(direction);
     }
 
-    GameObject GetClosestZombie()
+    Zombie GetClosestZombie()
     {
-        GameObject closest = null;
-        float closestDistance = 0f;
+        var cells = CurrentCell.GetAdjacentCells();
 
-        foreach(var zombie in GameState.Instance.Zombies)
+        Zombie closestZombie = null;
+        float closestDistance = float.MaxValue;
+        
+        foreach(var cell in cells)
         {
-            if(closest is null)
+            foreach(var unit in cell.Units)
             {
-                closest = zombie;
-                closestDistance = Vector2.Distance(this.transform.position, zombie.transform.position);
-                continue;
-            }
+                if(unit is not Zombie)
+                {
+                    continue;
+                }
 
-            var distance = Vector2.Distance(this.transform.position, zombie.transform.position);
-            if(distance < closestDistance)
-            {
-                closest = zombie;
+                var distance = Vector2.Distance(this.transform.position, unit.transform.position);
+
+                if(closestZombie is null)
+                {
+                    closestZombie = unit as Zombie;
+                    closestDistance = distance;
+                    continue;
+                }
+
+                if(distance < closestDistance)
+                {
+                    closestZombie = unit as Zombie;
+                }
             }
         }
 
-        return closest;
+        return closestZombie;
     }
 }

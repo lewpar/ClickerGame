@@ -41,6 +41,8 @@ public class PlayerController : GridUnit
         {
             throw new Exception("Failed to get bullet prefab for PlayerController.");
         }
+
+        base.OnStart();
     }
 
     public override void OnUpdate()

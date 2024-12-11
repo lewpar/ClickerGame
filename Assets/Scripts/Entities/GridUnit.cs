@@ -7,7 +7,10 @@ public class GridUnit : MonoBehaviour
     public virtual void OnAwake() { }
     void Awake() => OnAwake();
 
-    public virtual void OnStart() { }
+    public virtual void OnStart() 
+    { 
+        UpdateCell();
+    }
     void Start() => OnStart();
 
     public virtual void OnUpdate() { }
@@ -22,7 +25,7 @@ public class GridUnit : MonoBehaviour
     private void UpdateCell()
     {
         var world = WorldController.Instance;
-        var cell = world.GetCell(this.transform.position);
+        var cell = world.Grid.GetCell(this.transform.position);
 
         if(CurrentCell == null)
         {

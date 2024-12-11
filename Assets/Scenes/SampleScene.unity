@@ -1362,7 +1362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932de5b6845e0764980bd4e6abb1e015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawGrid: 1
+  drawGrid: 0
 --- !u!1 &1252217780
 GameObject:
   m_ObjectHideFlags: 0
