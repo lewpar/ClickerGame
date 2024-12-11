@@ -12,6 +12,11 @@ public class GameManager : MonoBehaviour
             currentTime = 0;
             GameState.Instance.UpdateGold(GameState.Instance.GoldPerSecond);
         }
+
+        if(Input.GetKeyUp(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     public void AddGold1()
