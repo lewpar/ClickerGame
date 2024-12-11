@@ -20,6 +20,7 @@ public class WorldController : MonoBehaviour
         Grid = new SpatialGrid(4);
     }
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         if(drawGrid && Grid != null)
@@ -40,4 +41,5 @@ public class WorldController : MonoBehaviour
             }
         }
     }
+#endif
 }
