@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2749626203814249150}
   - component: {fileID: 4333401976996320647}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BuyItem1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5006222285167460907}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -36,10 +36,10 @@ RectTransform:
   - {fileID: 3724315650356510149}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -740.94, y: 97.08}
-  m_SizeDelta: {x: 280.13, y: 61.84}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 193, y: -396}
+  m_SizeDelta: {x: 328.05, y: 61.840027}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7982564138639267939
 CanvasRenderer:
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ef02594d9818b83459d198b81a56bb34, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b0e44b7244070f340993f53871afc3ba, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -108,10 +108,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: ef02594d9818b83459d198b81a56bb34, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 56644d4001a2eb346ab5463c39afcbb5, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: ef02594d9818b83459d198b81a56bb34, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: 697ea571c37913243be296eac7b9f261, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: b0e44b7244070f340993f53871afc3ba, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: ce1682ac31e00ac47b4bbe99ffa00a40, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: b0e44b7244070f340993f53871afc3ba, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: b0e44b7244070f340993f53871afc3ba, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1287825383441105655}
+  offset: 3
 --- !u!114 &4333401976996320647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,7 +259,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Buy Auto Gold (Cost 10)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
