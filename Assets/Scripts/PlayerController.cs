@@ -94,7 +94,7 @@ public class PlayerController : GridUnit
         var clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         var direction = (clickPosition - this.gameObject.transform.position).normalized;
 
-        var bullet = Instantiate(bulletPrefab, this.transform.position, Quaternion.identity, this.transform);
+        var bullet = Instantiate(bulletPrefab, this.transform.position, Quaternion.identity, null);
         var bulletScript = bullet.GetComponent<BulletScript>();
         bulletScript.Direction = direction;
         

@@ -38,7 +38,7 @@ public class TurretAI : GridUnit
         
         var direction = (target.transform.position - this.transform.position).normalized;
 
-        var bullet = Instantiate(bulletPrefab, this.transform.position, Quaternion.identity, this.transform);
+        var bullet = Instantiate(bulletPrefab, this.transform.position, Quaternion.identity, null);
         var bulletScript = bullet.GetComponent<BulletScript>();
         bulletScript.Direction = direction;
         Debug.Log(direction);
