@@ -1,11 +1,10 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-public abstract class Unit : MonoBehaviour
+public abstract class Unit : GridUnit
 {
     public UnitAI AI { get; set; }
 
-    private void Awake()
+    public override void OnAwake()
     {
         if(AI != null)
         {
@@ -13,7 +12,7 @@ public abstract class Unit : MonoBehaviour
         }
     }
 
-    private void Update()
+    public override void OnUpdate()
     {
         if(AI != null)
         {
@@ -21,11 +20,14 @@ public abstract class Unit : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    public override void OnFixedUpdate()
     {
         if(AI != null)
         {
             AI.FixedUpdate();
         }
+
+        // Needed for cell updates
+        base.OnFixedUpdate();
     }
 }

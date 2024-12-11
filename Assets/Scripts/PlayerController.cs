@@ -2,7 +2,7 @@ using System;
 
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : GridUnit
 {
     [SerializeField]
     private float moveSpeed = 2f;
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
         return moveSpeed;
     }
 
-    void Start()
+    public override void OnStart()
     {
         movement = Vector2.zero;
         IsAlive = true;
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Update()
+    public override void OnUpdate()
     {
         if(Input.GetKey(KeyCode.W))
         {
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    public override void OnFixedUpdate()
     {
         if(movement == Vector2.zero)
         {
@@ -83,6 +83,8 @@ public class PlayerController : MonoBehaviour
         // Normalize the movement to fix fast diagonal movement
         rigidBody.velocity = (movement * moveSpeed).normalized * moveSpeed;
         movement = Vector2.zero;
+
+        base.OnFixedUpdate();
     }
 
     private void Shoot()
