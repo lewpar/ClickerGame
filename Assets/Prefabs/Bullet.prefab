@@ -100,6 +100,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 20
   lifetime: 1
+  popSounds:
+  - {fileID: 8300000, guid: 5b3c5e7f89a3e5d41a257bfc2eadfc68, type: 3}
+  - {fileID: 8300000, guid: a09964bbeb462e8478886f3f10803556, type: 3}
+  - {fileID: 8300000, guid: 28ec8543d5f63de4a8eeb2edb6065a50, type: 3}
+  - {fileID: 8300000, guid: 7469dc66635531a4c8365368e2c38635, type: 3}
+  - {fileID: 8300000, guid: d53fdb7dffd6a734fa78165b746505c8, type: 3}
 --- !u!58 &1576480235978833231
 CircleCollider2D:
   m_ObjectHideFlags: 0

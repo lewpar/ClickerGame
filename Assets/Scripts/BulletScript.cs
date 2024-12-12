@@ -12,6 +12,9 @@ public class BulletScript : MonoBehaviour
 
     private float currentLifetime;
 
+    [SerializeField]
+    private AudioClip[] popSounds;
+
     void Update()
     {
         currentLifetime += Time.deltaTime;
@@ -44,5 +47,12 @@ public class BulletScript : MonoBehaviour
         zombie.DestroySafe();
         GameObject.Destroy(this.gameObject);
         GameState.Instance.UpdateGold(1);
+
+        AudioSource.PlayClipAtPoint(GetRandomPopSound(), Camera.main.transform.position, 0.10f);
+    }
+
+    private AudioClip GetRandomPopSound()
+    {
+        return popSounds[Random.Range(0, popSounds.Length - 1)];
     }
 }
