@@ -3,6 +3,7 @@ using UnityEngine;
 public abstract class Unit : GridUnit
 {
     public UnitAI AI { get; set; }
+    public UnitFaction Faction { get; set; }
 
     public override void OnAwake()
     {

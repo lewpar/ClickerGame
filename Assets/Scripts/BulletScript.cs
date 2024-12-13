@@ -38,13 +38,13 @@ public class BulletScript : MonoBehaviour
     {
         var gameObject = other.gameObject;
 
-        var zombie = gameObject.GetComponent<Zombie>();
-        if(zombie is null)
+        var unit = gameObject.GetComponent<TDUnit>();
+        if(unit is null)
         {
             return;
         }
 
-        zombie.DestroySafe();
+        unit.DestroySafe();
         GameObject.Destroy(this.gameObject);
         GameState.Instance.UpdateGold(1);
 

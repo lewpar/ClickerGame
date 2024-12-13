@@ -34,6 +34,5 @@ public class EntityEmitterScript : MonoBehaviour
         var variation = new Vector3(Random.Range(0f, 1f), Random.Range(0f, 1f), 0);
         var position = this.transform.position + variation;
         var entity = GameObject.Instantiate(entityPrefab, position, Quaternion.identity, this.transform);
-        GameState.Instance.Zombies.Add(entity);
     }
 }

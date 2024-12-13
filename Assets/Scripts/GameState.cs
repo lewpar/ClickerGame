@@ -13,8 +13,6 @@ public class GameState : MonoBehaviour
 
     public bool GameLost { get; set; } = false;
 
-    public List<GameObject> Zombies { get; set; } = new List<GameObject>();
-
     [SerializeField]
     private TextMeshProUGUI goldText;
 
