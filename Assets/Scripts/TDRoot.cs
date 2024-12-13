@@ -46,6 +46,11 @@ public class TDRoot : MonoBehaviour
 
     private void Update()
     {
+        if(GameState.Instance.GameLost)
+        {
+            return;
+        }
+        
         timePassed += Time.deltaTime;
         if(timePassed > spawnFrequency)
         {

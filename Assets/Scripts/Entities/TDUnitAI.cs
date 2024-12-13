@@ -9,6 +9,11 @@ public class TDUnitAI : UnitAI
 
     public override void FixedUpdate()
     {
+        if(GameState.Instance.GameLost)
+        {
+            return;
+        }
+        
         if(Path == null)
         {
             return;
@@ -17,6 +22,7 @@ public class TDUnitAI : UnitAI
         if(currentPath >= Path.Length)
         {
             this.Unit.DestroySafe(playSound: true, rewardGold: false);
+            GameState.Instance.UpdateLife(-this.Unit.GetLifeDamage());
             return;
         }
 
@@ -34,8 +40,5 @@ public class TDUnitAI : UnitAI
         }
     }
 
-    public override void Update()
-    {
-
-    }
+    public override void Update() { }
 }

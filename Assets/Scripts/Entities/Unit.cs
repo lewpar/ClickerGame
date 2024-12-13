@@ -11,6 +11,9 @@ public abstract class Unit : GridUnit
     [SerializeField]
     private int destroyGoldReward;
 
+    [SerializeField]
+    private int lifeDamage;
+
     public override void OnAwake()
     {
         if(AI != null)
@@ -57,5 +60,10 @@ public abstract class Unit : GridUnit
     private AudioClip GetRandomDestroySound()
     {
         return destroySounds[Random.Range(0, destroySounds.Length - 1)];
+    }
+
+    public int GetLifeDamage()
+    {
+        return lifeDamage;
     }
 }
