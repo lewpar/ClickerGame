@@ -7,31 +7,23 @@ using UnityEngine.SceneManagement;
 
 public class GameState : MonoBehaviour
 {
-    public float Gold { get; set; } = 0;
-
-    public float GoldPerSecond { get; set; } = 0;
+    public int Gold { get; set; } = 0;
 
     public bool GameLost { get; set; } = false;
+
+    [SerializeField]
+    private int startingGold;
 
     [SerializeField]
     private TextMeshProUGUI goldText;
 
     [SerializeField]
-    private TextMeshProUGUI goldPerSecondText;
-
-    [SerializeField]
     private GameObject loserUI;
 
-    public void UpdateGold(float amount)
+    public void UpdateGold(int amount)
     {
         Gold += amount;
         goldText.text = $"Gold: {Gold}";
-    }
-
-    public void UpdateGoldPerSecond(float amount)
-    {
-        GoldPerSecond += amount;
-        goldPerSecondText.text = $"Gold /s: {GoldPerSecond}";
     }
 
     public void Update()
@@ -43,13 +35,12 @@ public class GameState : MonoBehaviour
             if(Input.GetKeyUp(KeyCode.Space))
             {
                 // Reload the scene / game
-                SceneManager.LoadScene("Scenes/SampleScene");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
     }
 
     public static GameState Instance { get; set; }
-    public static PlayerController Player { get; set; }
 
     void Awake()
     {
@@ -58,9 +49,6 @@ public class GameState : MonoBehaviour
             Instance = this;
         }
 
-        if(Player == null)
-        {
-            Player = GameObject.FindAnyObjectByType<PlayerController>();
-        }
+        UpdateGold(startingGold);
     }
 }

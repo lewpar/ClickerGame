@@ -16,7 +16,7 @@ public class TDUnitAI : UnitAI
         
         if(currentPath >= Path.Length)
         {
-            this.Unit.DestroySafe();
+            this.Unit.DestroySafe(playSound: true, rewardGold: false);
             return;
         }
 

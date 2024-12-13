@@ -4,6 +4,12 @@ public abstract class Unit : GridUnit
 {
     public UnitAI AI { get; set; }
     public UnitFaction Faction { get; set; }
+    
+    [SerializeField]
+    private AudioClip[] destroySounds;
+
+    [SerializeField]
+    private int destroyGoldReward;
 
     public override void OnAwake()
     {
@@ -32,9 +38,24 @@ public abstract class Unit : GridUnit
         base.OnFixedUpdate();
     }
 
-    public void DestroySafe()
+    public void DestroySafe(bool playSound = true, bool rewardGold = true)
     {
+        if(playSound)
+        {
+            AudioSource.PlayClipAtPoint(GetRandomDestroySound(), Camera.main.transform.position, 0.25f);
+        }
+
+        if(rewardGold && destroyGoldReward > 0)
+        {
+            GameState.Instance.UpdateGold(destroyGoldReward);
+        }
+
         CurrentCell.Remove(this);
         Destroy(this.gameObject);
+    }
+
+    private AudioClip GetRandomDestroySound()
+    {
+        return destroySounds[Random.Range(0, destroySounds.Length - 1)];
     }
 }

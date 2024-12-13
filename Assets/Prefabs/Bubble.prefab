@@ -134,6 +134,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d410415c1337a40bd9d79f644296d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroySounds:
+  - {fileID: 8300000, guid: 5b3c5e7f89a3e5d41a257bfc2eadfc68, type: 3}
+  - {fileID: 8300000, guid: a09964bbeb462e8478886f3f10803556, type: 3}
+  - {fileID: 8300000, guid: 28ec8543d5f63de4a8eeb2edb6065a50, type: 3}
+  - {fileID: 8300000, guid: 7469dc66635531a4c8365368e2c38635, type: 3}
+  - {fileID: 8300000, guid: d53fdb7dffd6a734fa78165b746505c8, type: 3}
+  destroyGoldReward: 1
 --- !u!50 &1118136379242877152
 Rigidbody2D:
   serializedVersion: 4

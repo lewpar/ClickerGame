@@ -46,13 +46,5 @@ public class BulletScript : MonoBehaviour
 
         unit.DestroySafe();
         GameObject.Destroy(this.gameObject);
-        GameState.Instance.UpdateGold(1);
-
-        AudioSource.PlayClipAtPoint(GetRandomPopSound(), Camera.main.transform.position, 0.25f);
-    }
-
-    private AudioClip GetRandomPopSound()
-    {
-        return popSounds[Random.Range(0, popSounds.Length - 1)];
     }
 }
