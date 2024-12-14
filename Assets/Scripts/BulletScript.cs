@@ -15,6 +15,8 @@ public class BulletScript : MonoBehaviour
     [SerializeField]
     private AudioClip[] popSounds;
 
+    private bool markedForDestroy;
+
     void Update()
     {
         currentLifetime += Time.deltaTime;
@@ -36,6 +38,11 @@ public class BulletScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if(markedForDestroy)
+        {
+            return;
+        }
+
         var gameObject = other.gameObject;
 
         var unit = gameObject.GetComponent<TDUnit>();
@@ -44,6 +51,7 @@ public class BulletScript : MonoBehaviour
             return;
         }
 
+        markedForDestroy = true;
         unit.DestroySafe();
         GameObject.Destroy(this.gameObject);
     }
