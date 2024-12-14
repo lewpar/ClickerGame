@@ -22,6 +22,7 @@ public class TDUnitAI : UnitAI
         if(currentPath >= Path.Length)
         {
             this.Unit.DestroySafe(playSound: true, rewardGold: false);
+            AudioSource.PlayClipAtPoint(this.Unit.GetRandomDamageSound(), Camera.main.transform.position, 0.25f);
             GameState.Instance.UpdateLife(-this.Unit.GetLifeDamage());
             return;
         }

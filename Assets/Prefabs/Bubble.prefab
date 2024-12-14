@@ -142,6 +142,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d53fdb7dffd6a734fa78165b746505c8, type: 3}
   destroyGoldReward: 1
   lifeDamage: 3
+  damageSounds:
+  - {fileID: 8300000, guid: f015243b595ff8343ab2a70cac3aa5a3, type: 3}
+  - {fileID: 8300000, guid: ea17577b5bb0a4448b2aa2f78a452b8c, type: 3}
+  - {fileID: 8300000, guid: 1af2bd46165a4d344b2f0729ba6e2e7a, type: 3}
 --- !u!50 &1118136379242877152
 Rigidbody2D:
   serializedVersion: 4
